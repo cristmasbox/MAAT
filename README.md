@@ -1,2 +1,2 @@
 # Mobile API for Ancient Texts (MAAT)
-Library for rendering egyptian hieroglyphic texts.
+A library for rendering egyptian hieroglyphic texts by using the `GlyphX` format.
