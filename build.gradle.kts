@@ -4,7 +4,7 @@ plugins {
     id("com.android.library") version "8.13.0"
     id("maven-publish")
     id("signing")
-    //id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
+    id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
 }
 
 android {
