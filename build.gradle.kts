@@ -34,7 +34,7 @@ android {
 publishing {
     publications {
         create<MavenPublication>("release") {
-            from(components["java"]) // or "release" for Android libraries
+            from(components["release"]) // or "release" for Android libraries
             groupId = "com.blueapps"
             artifactId = "maat"
             version = "1.0.0"
@@ -42,13 +42,13 @@ publishing {
     }
 }
 
-signing {
-    useInMemoryPgpKeys(
-        System.getenv("SIGNING_KEY_ID"),
-        System.getenv("SIGNING_KEY"),
-        System.getenv("SIGNING_PASSWORD")
-    )
-    sign(publishing.publications)
+nexusPublishing {
+    repositories {
+        sonatype {
+            username.set(System.getenv("MAVEN_CENTRAL_USERNAME"))
+            password.set(System.getenv("MAVEN_CENTRAL_PASSWORD"))
+        }
+    }
 }
 
 dependencies {
