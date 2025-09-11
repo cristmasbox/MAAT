@@ -31,53 +31,50 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
+publishing {
+    publications {
+        create<MavenPublication>("release") {
 
-                groupId = "com.blueapps"
-                artifactId = "maat"
-                version = "1.0.0"
+            groupId = "com.blueapps"
+            artifactId = "maat"
+            version = "1.0.0"
 
-                pom {
-                    name.set("Mobile API for Ancient Texts (MAAT)")
-                    description.set("Library for rendering egyptian hieroglyphic texts.")
+            artifact("$projectDir/publishing/maat.aar")
+
+            pom {
+                name.set("Mobile API for Ancient Texts (MAAT)")
+                description.set("Library for rendering egyptian hieroglyphic texts.")
+                url.set("https://github.com/cristmasbox/MAAT")
+                licenses {
+                    license {
+                        name.set("GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007")
+                        url.set("https://www.gnu.org/licenses/")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("cristmasbox")
+                        name.set("Georg Schierholt")
+                        email.set("sonne.zucker@gmx.de")
+                    }
+                }
+                scm {
                     url.set("https://github.com/cristmasbox/MAAT")
-                    licenses {
-                        license {
-                            name.set("GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007")
-                            url.set("https://www.gnu.org/licenses/")
-                        }
-                    }
-                    developers {
-                        developer {
-                            id.set("cristmasbox")
-                            name.set("Georg Schierholt")
-                            email.set("sonne.zucker@gmx.de")
-                        }
-                    }
-                    scm {
-                        url.set("https://github.com/cristmasbox/MAAT")
-                    }
                 }
             }
         }
     }
+}
 
-    signing {
-        sign(publishing.publications["release"])
-    }
+signing {
+    useInMemoryPgpKeys(
+        System.getenv("SIGNING_KEY_ID"),
+        System.getenv("SIGNING_KEY"),
+        System.getenv("SIGNING_PASSWORD")
+    )
+    sign(publishing.publications)
 }
 
 dependencies {
