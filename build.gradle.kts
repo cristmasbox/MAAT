@@ -2,7 +2,7 @@ plugins {
     id("com.android.library") version "8.13.0"
     id("maven-publish")
     id("signing")
-    //id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
+    id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
 }
 
 android {
@@ -34,34 +34,10 @@ android {
 publishing {
     publications {
         create<MavenPublication>("release") {
-
+            from(components["java"]) // or "release" for Android libraries
             groupId = "com.blueapps"
             artifactId = "maat"
             version = "1.0.0"
-
-            artifact("$projectDir/publishing/maat.aar")
-
-            pom {
-                name.set("Mobile API for Ancient Texts (MAAT)")
-                description.set("Library for rendering egyptian hieroglyphic texts.")
-                url.set("https://github.com/cristmasbox/MAAT")
-                licenses {
-                    license {
-                        name.set("GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007")
-                        url.set("https://www.gnu.org/licenses/")
-                    }
-                }
-                developers {
-                    developer {
-                        id.set("cristmasbox")
-                        name.set("Georg Schierholt")
-                        email.set("sonne.zucker@gmx.de")
-                    }
-                }
-                scm {
-                    url.set("https://github.com/cristmasbox/MAAT")
-                }
-            }
         }
     }
 }
