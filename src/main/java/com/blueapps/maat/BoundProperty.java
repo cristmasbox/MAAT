@@ -1,4 +1,4 @@
-package com.blueapps.render;
+package com.blueapps.maat;
 
 public class BoundProperty {
 

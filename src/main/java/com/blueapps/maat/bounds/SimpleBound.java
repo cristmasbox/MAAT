@@ -1,19 +1,19 @@
-package com.blueapps.render.bounds;
+package com.blueapps.maat.bounds;
 
-import static com.blueapps.render.BoundCalculation.STANDARD_HEIGHT_VALUE;
-import static com.blueapps.render.BoundCalculation.STANDARD_WIDTH_VALUE;
-import static com.blueapps.render.BoundCalculation.XML_ID_ATTRIBUTE;
-import static com.blueapps.render.BoundProperty.VERTICAL_ORIENTATION_DOWN;
-import static com.blueapps.render.BoundProperty.VERTICAL_ORIENTATION_MIDDLE;
-import static com.blueapps.render.BoundProperty.VERTICAL_ORIENTATION_UP;
-import static com.blueapps.render.BoundProperty.WRITING_LAYOUT_COLUMNS;
-import static com.blueapps.render.BoundProperty.WRITING_LAYOUT_LINES;
+import static com.blueapps.maat.BoundCalculation.STANDARD_HEIGHT_VALUE;
+import static com.blueapps.maat.BoundCalculation.STANDARD_WIDTH_VALUE;
+import static com.blueapps.maat.BoundCalculation.XML_ID_ATTRIBUTE;
+import static com.blueapps.maat.BoundProperty.VERTICAL_ORIENTATION_DOWN;
+import static com.blueapps.maat.BoundProperty.VERTICAL_ORIENTATION_MIDDLE;
+import static com.blueapps.maat.BoundProperty.VERTICAL_ORIENTATION_UP;
+import static com.blueapps.maat.BoundProperty.WRITING_LAYOUT_COLUMNS;
+import static com.blueapps.maat.BoundProperty.WRITING_LAYOUT_LINES;
 
 import android.graphics.Rect;
 import android.util.Log;
 
-import com.blueapps.render.BoundProperty;
-import com.blueapps.render.ValuePair;
+import com.blueapps.maat.BoundProperty;
+import com.blueapps.maat.ValuePair;
 
 import org.w3c.dom.Element;
 

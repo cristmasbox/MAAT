@@ -1,9 +1,9 @@
-package com.blueapps.render.bounds;
+package com.blueapps.maat.bounds;
 
 import android.graphics.Rect;
 
-import com.blueapps.render.BoundProperty;
-import com.blueapps.render.ValuePair;
+import com.blueapps.maat.BoundProperty;
+import com.blueapps.maat.ValuePair;
 
 import org.w3c.dom.Element;
 

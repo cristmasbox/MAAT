@@ -1,12 +1,12 @@
-package com.blueapps.render;
+package com.blueapps.maat;
 
 import android.graphics.Rect;
 import android.util.Log;
 
-import com.blueapps.render.bounds.Bound;
-import com.blueapps.render.bounds.HorizontalBound;
-import com.blueapps.render.bounds.SimpleBound;
-import com.blueapps.render.bounds.VertBound;
+import com.blueapps.maat.bounds.Bound;
+import com.blueapps.maat.bounds.HorizontalBound;
+import com.blueapps.maat.bounds.SimpleBound;
+import com.blueapps.maat.bounds.VertBound;
 
 import org.w3c.dom.Comment;
 import org.w3c.dom.Document;

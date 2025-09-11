@@ -1,8 +1,8 @@
-package com.blueapps.render.bounds;
+package com.blueapps.maat.bounds;
 
-import static com.blueapps.render.BoundCalculation.XML_H_TAG;
-import static com.blueapps.render.BoundCalculation.XML_SIGN_TAG;
-import static com.blueapps.render.BoundCalculation.XML_V_TAG;
+import static com.blueapps.maat.BoundCalculation.XML_H_TAG;
+import static com.blueapps.maat.BoundCalculation.XML_SIGN_TAG;
+import static com.blueapps.maat.BoundCalculation.XML_V_TAG;
 
 import android.graphics.Rect;
 import android.util.Log;

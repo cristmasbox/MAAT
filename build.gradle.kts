@@ -1,5 +1,3 @@
-import kotlin.math.sign
-
 plugins {
     id("com.android.library") version "8.13.0"
     id("maven-publish")
