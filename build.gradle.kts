@@ -1,5 +1,3 @@
-import com.vanniktech.maven.publish.SonatypeHost
-
 plugins {
     id("com.android.library") version "8.13.0"
     id("com.vanniktech.maven.publish") version "0.34.0"
@@ -73,5 +71,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
 
 }
+
 
 
