@@ -1,5 +1,8 @@
+import com.vanniktech.maven.publish.SonatypeHost
+
 plugins {
     id("com.android.library") version "8.13.0"
+    id("com.vanniktech.maven.publish") version "0.34.0"
 }
 
 android {
@@ -28,6 +31,42 @@ android {
     }
 }
 
+mavenPublishing {
+  publishToMavenCentral()
+
+  signAllPublications()
+}
+
+mavenPublishing {
+  coordinates("com.blueapps.maat", "maat", "1.0.0")
+
+  pom {
+    name.set("Mobile API for Ancient Texts (MAAT)")
+    description.set("Library for rendering egyptian hieroglyphic texts.")
+    inceptionYear.set("2025")
+    url.set("https://github.com/cristmasbox/MAAT")
+    licenses {
+      license {
+        name.set("GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007")
+        url.set("https://www.gnu.org/licenses/")
+        distribution.set("https://www.gnu.org/licenses/")
+      }
+    }
+    developers {
+      developer {
+        id.set("cristmasbox")
+        name.set("Georg Schierholt")
+        url.set("https://github.com/cristmasbox")
+      }
+    }
+    scm {
+      url.set("https://github.com/cristmasbox/MAAT")
+      connection.set("scm:git:git://github.com/cristmasbox/MAAT.git")
+      developerConnection.set("scm:git:ssh://git@github.com/cristmasbox/MAAT.git")
+    }
+  }
+}
+
 dependencies {
 
     implementation("androidx.appcompat:appcompat:1.7.1")
@@ -37,3 +76,4 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
 
 }
+
