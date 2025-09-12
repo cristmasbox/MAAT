@@ -33,7 +33,7 @@ mavenPublishing {
   publishToMavenCentral()
   signAllPublications()
 
-  coordinates("com.blueapps.maat", "maat", "1.0.0")
+  coordinates("com.blueapps.maat", "maat")
 
   pom {
     name.set("Mobile API for Ancient Texts (MAAT)")
@@ -71,6 +71,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
 
 }
+
 
 
 
