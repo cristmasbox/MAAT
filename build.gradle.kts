@@ -1,6 +1,5 @@
 plugins {
-    alias(libs.plugins.android.library)
-    id("maven-publish")
+    id("com.android.library") version "8.13.0"
 }
 
 android {
@@ -31,9 +30,10 @@ android {
 
 dependencies {
 
-    implementation(libs.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    implementation("androidx.appcompat:appcompat:1.7.1")
+    implementation("com.google.android.material:material:1.13.0")
+    testImplementation("junit:junit4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.3.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+
 }
