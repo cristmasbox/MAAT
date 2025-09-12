@@ -1,6 +1,6 @@
 plugins {
     id("com.android.library") version "8.13.0"
-    id("com.vanniktech.maven.publish") version "0.35.3"
+    id("com.vanniktech.maven.publish") version "0.25.3"
 }
 
 android {
@@ -70,6 +70,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
 
 }
+
 
 
 
