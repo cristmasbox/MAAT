@@ -33,11 +33,8 @@ android {
 
 mavenPublishing {
   publishToMavenCentral()
-
   signAllPublications()
-}
 
-mavenPublishing {
   coordinates("com.blueapps.maat", "maat", "1.0.0")
 
   pom {
@@ -76,4 +73,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
 
 }
+
 
