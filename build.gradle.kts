@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     id("com.android.library") version "8.13.0"
     id("maven-publish")
-    kotlin("android")
+    id("org.jetbrains.kotlin.android") version "2.2.20"
 }
 
 android {
