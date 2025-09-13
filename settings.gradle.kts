@@ -12,18 +12,9 @@ pluginManagement {
     }
 }
 dependencyResolutionManagement {
-    //repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
     }
 }
-
-rootProject.name = "Debug App"
-include(":app")
-include(":module")
-include(":colorpicker")
-include(":maat")
-include(":edit")
-include(":export")
