@@ -30,8 +30,6 @@ dependencies {
   implementation(files("../libs/MAAT_release_versionname.aar"))
 }
 ```
-> [!NOTE]
-> I recommend using the `release` file instead of the `debug` file
 
 > [!IMPORTANT]
 > If you renamed the `.aar` file you also have to change the name in the dependencies
