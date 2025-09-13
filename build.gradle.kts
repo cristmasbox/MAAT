@@ -1,8 +1,6 @@
 plugins {
-    id("com.android.library") version "8.13.0"
+    alias(libs.plugins.android.library)
     id("maven-publish")
-    id("signing")
-    //id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
 }
 
 android {
@@ -31,55 +29,11 @@ android {
     }
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("release") {
-
-            groupId = "com.blueapps"
-            artifactId = "maat"
-            version = "1.0.0"
-
-            artifact("$projectDir/publishing/maat.aar")
-
-            pom {
-                name.set("Mobile API for Ancient Texts (MAAT)")
-                description.set("Library for rendering egyptian hieroglyphic texts.")
-                url.set("https://github.com/cristmasbox/MAAT")
-                licenses {
-                    license {
-                        name.set("GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007")
-                        url.set("https://www.gnu.org/licenses/")
-                    }
-                }
-                developers {
-                    developer {
-                        id.set("cristmasbox")
-                        name.set("Georg Schierholt")
-                        email.set("sonne.zucker@gmx.de")
-                    }
-                }
-                scm {
-                    url.set("https://github.com/cristmasbox/MAAT")
-                }
-            }
-        }
-    }
-}
-
-signing {
-    useInMemoryPgpKeys(
-        System.getenv("SIGNING_KEY_ID"),
-        System.getenv("SIGNING_KEY"),
-        System.getenv("SIGNING_PASSWORD")
-    )
-    sign(publishing.publications)
-}
-
 dependencies {
 
-    implementation("androidx.appcompat:appcompat:1.7.1")
-    implementation("com.google.android.material:material:1.13.0")
-    testImplementation("junit:junit4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.3.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 }
