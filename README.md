@@ -46,7 +46,7 @@ String GlyphXContent = "";                                                      
 // Convert your string to an XML Document
 
 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();            // Parser that produces DOM object trees from XML content
-DocumentBuilder builder;  // API to obtain DOM Document instance
+DocumentBuilder builder;                                                          // API to obtain DOM Document instance
 builder = factory.newDocumentBuilder();                                           // Create DocumentBuilder with default configuration
 Document GlyphXDocument = builder.parse(new InputSource(new StringReader(xml)));  // Parse the content to Document object
 
