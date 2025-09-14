@@ -42,7 +42,12 @@ dependencies {
 First add this code to get the ids of all hieroglyphs used in the `GlyphX` document.
 ```
 String GlyphXContent = "";  // Save your GlyphX string here
-Document GlyphXDocument = convertStringToXMLDocument(GlyphXContent);  // Convert your string to an XML Document
+
+// Convert your string to an XML Document
+DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();  // Parser that produces DOM object trees from XML content
+DocumentBuilder builder;  // API to obtain DOM Document instance
+builder = factory.newDocumentBuilder();  // Create DocumentBuilder with default configuration
+Document GlyphXDocument = builder.parse(new InputSource(new StringReader(xml)));  // Parse the content to Document object
 
 BoundCalculation boundCalculation = new BoundCalculation(GlyphXDocument);  // Create an object of the BoundCalculation class
 ArrayList<String> ids = boundCalculation.getIds();  // Get the ids of all the hieroglyphs e.g. ["sn","n","nw","w","A1"]
