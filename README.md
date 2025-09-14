@@ -41,16 +41,17 @@ dependencies {
 ## Usage
 First add this code to get the ids of all hieroglyphs used in the `GlyphX` document.
 ```
-String GlyphXContent = "";  // Save your GlyphX string here
+String GlyphXContent = "";                                                        // Save your GlyphX string here
 
 // Convert your string to an XML Document
-DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();  // Parser that produces DOM object trees from XML content
+
+DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();            // Parser that produces DOM object trees from XML content
 DocumentBuilder builder;  // API to obtain DOM Document instance
-builder = factory.newDocumentBuilder();  // Create DocumentBuilder with default configuration
+builder = factory.newDocumentBuilder();                                           // Create DocumentBuilder with default configuration
 Document GlyphXDocument = builder.parse(new InputSource(new StringReader(xml)));  // Parse the content to Document object
 
-BoundCalculation boundCalculation = new BoundCalculation(GlyphXDocument);  // Create an object of the BoundCalculation class
-ArrayList<String> ids = boundCalculation.getIds();  // Get the ids of all the hieroglyphs e.g. ["sn","n","nw","w","A1"]
+BoundCalculation boundCalculation = new BoundCalculation(GlyphXDocument);         // Create an object of the BoundCalculation class
+ArrayList<String> ids = boundCalculation.getIds();                                // Get the ids of all the hieroglyphs e.g. ["sn","n","nw","w","A1"]
 ```
 The ids are either codes from [Gardiner's Sign List](https://ancientegyptonline.co.uk/Gardiner-sign-list/) like `A1`, `Z1`, `A1B` or `O34` or their [phonetic alternates](http://71.174.62.16/image/WebGlyph/SmallCollection.pdf) like `sn`, `zA`, `xAst` or `ra`.<br/><br/>
 In the next step you have to find the right images representing the ids. When you found them, you have to get their dimensions and store them in an `ArrayList<ValuePair<Float, Float>>`. The first `Float`-value is the width and the second is the height of the image.
