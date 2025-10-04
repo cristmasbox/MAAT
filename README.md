@@ -71,15 +71,15 @@ Here is the explanation for the parameters:
 - `y` This value defines the gobal y-position for the whole text. With help of this value, you can move the text as a whole.
 - `textSize` This defines the height of a line in pixels. If the `writingLayout` is set to `WRITING_LAYOUT_COLUMNS` this value defines the width of a column in pixels.
 - `verticalOrientation` This parameter can only have three values and defines the vertical position of smaller signs (like `n`):
-  - `VERTICAL_ORIENTATION_UP` Put signs to the top of the line
-  - `VERTICAL_ORIENTATION_MIDDLE` Center signs vertically
-  - `VERTICAL_ORIENTATION_DOWN` Drop signs on Baseline
+  - `BoundProperty.VERTICAL_ORIENTATION_UP` Put signs to the top of the line
+  - `BoundProperty.VERTICAL_ORIENTATION_MIDDLE` Center signs vertically
+  - `BoundProperty.VERTICAL_ORIENTATION_DOWN` Drop signs on Baseline
 - `writingDirection` This parameter can only have two values and defines the direction of writing:
-  - `WRITING_DIRECTION_LTR` Write from left to right
-  - `WRITING_DIRECTION_RTL` Write from right to left
+  - `BoundProperty.WRITING_DIRECTION_LTR` Write from left to right
+  - `BoundProperty.WRITING_DIRECTION_RTL` Write from right to left
 - `writingLayout` This parameter also have two possible values and determines if signs should be written in lines or in columns:
-  - `WRITING_LAYOUT_LINES` Write signs in lines
-  - `WRITING_LAYOUT_COLUMNS` Write signs in columns
+  - `BoundProperty.WRITING_LAYOUT_LINES` Write signs in lines
+  - `BoundProperty.WRITING_LAYOUT_COLUMNS` Write signs in columns
 
 > [!WARNING]
 > Currently in `RTL`-mode the signs are still written in `LTR` when positioned in an `<h>`-group
