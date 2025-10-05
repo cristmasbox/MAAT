@@ -5,7 +5,12 @@ A library for rendering egyptian hieroglyphic texts by using the `GlyphX` format
 ## Disclaimer
 This library only handles the calculation of the position and scale of each hieroglyph. The rendering and storing of the images are not included. Besides the library uses the `GlyphX` code for encoding the hieroglyphic texts.
 <br/><br/>
-A library for converting `GlyphX` to `MdC` and back is planned. In future I also want to create an android library which also handels the rendering and storing of the images.
+A library for converting `GlyphX` to `MdC` and back is planned.
+
+> [!TIP]
+> **You don't want to handle all the images by yourself?
+> Try the [THOTH](https://github.com/cristmasbox/THOTH) library which uses the MAAT library and handles all the images.**\
+> It contains an android custom view which renders everything for you. You only have to adjust a few parameters!
 
 ## Implementation with jitpack
 Add this to your `settings.gradle.kts` at the end of repositories:
