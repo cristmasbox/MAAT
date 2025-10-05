@@ -7,7 +7,7 @@ This library only handles the calculation of the position and scale of each hier
 <br/><br/>
 A library for converting `GlyphX` to `MdC` and back is planned. In future I also want to create an android library which also handels the rendering and storing of the images.
 
-## Implemetation with jitpack
+## Implementation with jitpack
 Add this to your `settings.gradle.kts` at the end of repositories:
 ```
 dependencyResolutionManagement {
