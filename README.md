@@ -5,7 +5,7 @@ A library for rendering egyptian hieroglyphic texts by using the `GlyphX` format
 ## Disclaimer
 This library only handles the calculation of the position and scale of each hieroglyph. The rendering and storing of the images are not included. Besides the library uses the `GlyphX` code for encoding the hieroglyphic texts.
 <br/><br/>
-A library for converting `GlyphX` to `MdC` and back is planned.
+A library for converting `GlyphX` to `MdC` and back is stored here: [GlyphConverter](https://github.com/cristmasbox/GlyphConverter).
 
 > [!TIP]
 > **You don't want to handle all the images by yourself?
