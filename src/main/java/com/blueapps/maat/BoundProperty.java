@@ -21,7 +21,7 @@ public class BoundProperty {
     public static final int WRITING_LAYOUT_LINES = 0;
     public static final int WRITING_LAYOUT_COLUMNS = 1;
 
-
+    public BoundProperty(){}
 
     public BoundProperty(float x, float y, float textSize, int verticalOrientation, int writingDirection, int writingLayout){
         this.x = x;
