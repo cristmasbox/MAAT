@@ -6,9 +6,16 @@ public class BoundProperty {
     private float y = 0f;
 
     private float textSize = 0f;
-    private int verticalOrientation;
-    private int writingDirection;
-    private int writingLayout;
+    private int verticalOrientation = VERTICAL_ORIENTATION_MIDDLE;
+    private int writingDirection = WRITING_DIRECTION_LTR;
+    private int writingLayout = WRITING_LAYOUT_LINES;
+
+    private float pagePaddingLeft = 0f;
+    private float pagePaddingTop = 0f;
+    private float pagePaddingRight = 0f;
+    private float pagePaddingBottom = 0f;
+    private
+
 
     // Constants
     public static final int VERTICAL_ORIENTATION_UP = 0;
