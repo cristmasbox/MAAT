@@ -5,7 +5,7 @@ public class BoundProperty {
     private float x = 0f;
     private float y = 0f;
 
-    private float textSize = 0f;
+    private float textSize = 100f;
     private int verticalOrientation = VERTICAL_ORIENTATION_MIDDLE;
     private int writingDirection = WRITING_DIRECTION_LTR;
     private int writingLayout = WRITING_LAYOUT_LINES;
@@ -14,7 +14,12 @@ public class BoundProperty {
     private float pagePaddingTop = 0f;
     private float pagePaddingRight = 0f;
     private float pagePaddingBottom = 0f;
-    private
+    private float signPadding = 10f;
+    private float layoutSignPadding = 5f;
+    private float interLinePadding = 25f;
+
+    private boolean drawLines = false;
+    private float lineThickness = 2f;
 
 
     // Constants
@@ -30,13 +35,30 @@ public class BoundProperty {
 
     public BoundProperty(){}
 
-    public BoundProperty(float x, float y, float textSize, int verticalOrientation, int writingDirection, int writingLayout){
+    public BoundProperty(float x, float y, float textSize,
+                         int verticalOrientation, int writingDirection,
+                         int writingLayout, boolean drawLines,
+                         float lineThickness, float pagePaddingLeft,
+                         float pagePaddingTop, float pagePaddingRight,
+                         float pagePaddingBottom, float signPadding,
+                         float layoutSignPadding, float interLinePadding){
         this.x = x;
         this.y = y;
         this.textSize = textSize;
         this.verticalOrientation = verticalOrientation;
         this.writingDirection = writingDirection;
         this.writingLayout = writingLayout;
+
+        this.drawLines = drawLines;
+        this.lineThickness = lineThickness;
+
+        this.pagePaddingLeft = pagePaddingLeft;
+        this.pagePaddingTop = pagePaddingTop;
+        this.pagePaddingRight = pagePaddingRight;
+        this.pagePaddingBottom = pagePaddingBottom;
+        this.signPadding = signPadding;
+        this.layoutSignPadding = layoutSignPadding;
+        this.interLinePadding = interLinePadding;
     }
 
 
@@ -88,4 +110,75 @@ public class BoundProperty {
         this.writingLayout = writingLayout;
     }
 
+    public float getPagePaddingBottom() {
+        return pagePaddingBottom;
+    }
+
+    public void setPagePaddingBottom(float pagePaddingBottom) {
+        this.pagePaddingBottom = pagePaddingBottom;
+    }
+
+    public float getPagePaddingRight() {
+        return pagePaddingRight;
+    }
+
+    public void setPagePaddingRight(float pagePaddingRight) {
+        this.pagePaddingRight = pagePaddingRight;
+    }
+
+    public float getPagePaddingTop() {
+        return pagePaddingTop;
+    }
+
+    public void setPagePaddingTop(float pagePaddingTop) {
+        this.pagePaddingTop = pagePaddingTop;
+    }
+
+    public float getPagePaddingLeft() {
+        return pagePaddingLeft;
+    }
+
+    public void setPagePaddingLeft(float pagePaddingLeft) {
+        this.pagePaddingLeft = pagePaddingLeft;
+    }
+
+    public float getSignPadding() {
+        return signPadding;
+    }
+
+    public void setSignPadding(float signPadding) {
+        this.signPadding = signPadding;
+    }
+
+    public float getLayoutSignPadding() {
+        return layoutSignPadding;
+    }
+
+    public void setLayoutSignPadding(float layoutSignPadding) {
+        this.layoutSignPadding = layoutSignPadding;
+    }
+
+    public float getInterLinePadding() {
+        return interLinePadding;
+    }
+
+    public void setInterLinePadding(float interLinePadding) {
+        this.interLinePadding = interLinePadding;
+    }
+
+    public boolean areLinesDrawn() {
+        return drawLines;
+    }
+
+    public void setDrawLines(boolean drawLines) {
+        this.drawLines = drawLines;
+    }
+
+    public float getLineThickness() {
+        return lineThickness;
+    }
+
+    public void setLineThickness(float lineThickness) {
+        this.lineThickness = lineThickness;
+    }
 }

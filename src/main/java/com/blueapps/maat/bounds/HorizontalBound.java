@@ -10,6 +10,7 @@ import com.blueapps.maat.ValuePair;
 import org.w3c.dom.Element;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class HorizontalBound extends LayoutBound {
 
@@ -25,6 +26,28 @@ public class HorizontalBound extends LayoutBound {
         float xCursor = 0f;
         float firstOverallWidth = 0f;
         float secondOverallWidth = 0f;
+
+        // reverse order for RTL layout
+        if (property.getWritingDirection() == BoundProperty.WRITING_DIRECTION_RTL) {
+
+            ArrayList<Bound> reversed = new ArrayList<>();
+            ArrayList<Bound> line = new ArrayList<>();
+            for (Bound bound : boundCalculations) {
+                if (bound instanceof BreakBound) {
+                    Collections.reverse(line);
+                    reversed.addAll(line);
+                    reversed.add(bound);
+                    line.clear();
+                } else {
+                    line.add(bound);
+                }
+            }
+
+            Collections.reverse(line);
+            reversed.addAll(line);
+            boundCalculations = reversed;
+
+        }
 
         int count = 0;
         for (Bound bound: boundCalculations){
@@ -46,7 +69,7 @@ public class HorizontalBound extends LayoutBound {
 
             firstBounds.add(myBound);
 
-            firstOverallWidth += width;
+            firstOverallWidth += width + property.getLayoutSignPadding();
         }
 
         if (property.getWritingLayout() == BoundProperty.WRITING_LAYOUT_COLUMNS || (!rootChild)) {
@@ -123,5 +146,36 @@ public class HorizontalBound extends LayoutBound {
         myBound = new Rect(minLeft, minTop, maxRight, maxBottom);
 
         return new Rect(myBound);
+    }
+
+    @Override
+    public ArrayList<String> getIds(boolean RTL) {
+        ArrayList<String> returnArray = new ArrayList<>();
+        // reverse order for RTL layout
+        if (RTL) {
+
+            ArrayList<Bound> reversed = new ArrayList<>();
+            ArrayList<Bound> line = new ArrayList<>();
+            for (Bound bound : boundCalculations) {
+                if (bound instanceof BreakBound) {
+                    Collections.reverse(line);
+                    reversed.addAll(line);
+                    reversed.add(bound);
+                    line.clear();
+                } else {
+                    line.add(bound);
+                }
+            }
+
+            Collections.reverse(line);
+            reversed.addAll(line);
+            boundCalculations = reversed;
+
+        }
+
+        for (Bound bound: boundCalculations){
+            returnArray.addAll(bound.getIds(RTL));
+        }
+        return returnArray;
     }
 }

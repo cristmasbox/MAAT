@@ -107,7 +107,7 @@ public class SimpleBound extends Bound{
     }
 
     @Override
-    public ArrayList<String> getIds() {
+    public ArrayList<String> getIds(boolean RTL) {
         ArrayList<String> returnArray = new ArrayList<>();
         returnArray.add(id);
         return returnArray;

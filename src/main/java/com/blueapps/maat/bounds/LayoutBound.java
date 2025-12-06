@@ -102,10 +102,10 @@ public class LayoutBound extends Bound{
     }
 
     @Override
-    public ArrayList<String> getIds() {
+    public ArrayList<String> getIds(boolean RTL) {
         ArrayList<String> returnArray = new ArrayList<>();
         for (Bound bound: boundCalculations){
-            returnArray.addAll(bound.getIds());
+            returnArray.addAll(bound.getIds(RTL));
         }
         return returnArray;
     }

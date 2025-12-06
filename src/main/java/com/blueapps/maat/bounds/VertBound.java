@@ -47,7 +47,7 @@ public class VertBound extends LayoutBound {
 
             firstBounds.add(myBound);
 
-            firstOverallHeight += height;
+            firstOverallHeight += height + property.getLayoutSignPadding();
 
         }
 
@@ -82,13 +82,13 @@ public class VertBound extends LayoutBound {
                 float boundWidth = bound.width();
                 bound.top = (int) yCursor;
                 bound.bottom = (int) (bound.bottom + yCursor);
-                if (property.getWritingDirection() == BoundProperty.WRITING_DIRECTION_RTL) {
+                /*if (property.getWritingDirection() == BoundProperty.WRITING_DIRECTION_RTL) {
                     bound.left = (int) -((width - boundWidth) / 2);
                     bound.right = (int) (bound.right - ((width - boundWidth) / 2));
-                } else {
+                } else {*/
                     bound.left = (int) ((width - boundWidth) / 2);
                     bound.right = (int) (bound.right + ((width - boundWidth) / 2));
-                }
+                //}
 
                 thirdBounds.add(bound);
                 yCursor += bound.height() + individualBorder;

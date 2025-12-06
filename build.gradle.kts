@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    id("com.android.library") version "8.13.0"
+    id("com.android.library") version "8.13.1"
     id("maven-publish")
     id("org.jetbrains.kotlin.android") version "2.2.20"
 }
@@ -57,7 +57,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.cristmasbox"
                 artifactId = "maat"
-                version = "1.0.0"
+                version = "1.5.0"
             }
         }
     }

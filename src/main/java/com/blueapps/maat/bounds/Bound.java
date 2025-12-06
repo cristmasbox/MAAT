@@ -35,7 +35,7 @@ public abstract class Bound {
         return bounds;
     }
 
-    public ArrayList<String> getIds(){
+    public ArrayList<String> getIds(boolean RTL){
         return new ArrayList<>();
     }
 
