@@ -121,29 +121,6 @@ public class BoundCalculation {
         xCursor = property.getX() + property.getPagePaddingLeft();
         yCursor = property.getY() + property.getPagePaddingTop();
 
-        // reverse order for RTL layout
-        if (property.getWritingLayout() == BoundProperty.WRITING_LAYOUT_LINES &&
-                property.getWritingDirection() == BoundProperty.WRITING_DIRECTION_RTL) {
-
-            ArrayList<Bound> reversed = new ArrayList<>();
-            ArrayList<Bound> line = new ArrayList<>();
-            for (Bound bound : boundCalculations) {
-                if (bound instanceof BreakBound) {
-                    Collections.reverse(line);
-                    reversed.addAll(line);
-                    reversed.add(bound);
-                    line.clear();
-                } else {
-                    line.add(bound);
-                }
-            }
-
-            Collections.reverse(line);
-            reversed.addAll(line);
-            boundCalculations = reversed;
-
-        }
-
         int count = 0;
         for (Bound bound: boundCalculations){
 
