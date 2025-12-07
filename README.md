@@ -26,7 +26,7 @@ dependencyResolutionManagement {
 Then add this dependency to your `build.gradle.kts` file:
 ```
 dependencies {
-  implementation("com.github.cristmasbox:MAAT:1.5.0")
+  implementation("com.github.cristmasbox:MAAT:1.5.1")
 }
 ```
 > [!NOTE]
@@ -123,5 +123,8 @@ This is the first release of the MAAT library.
 - Support for ```<br/>``` and ```<pbr/>``` tags added
 - Issue with ```RTL``` layout solved
 - Paddings for graphical purposes added
+### 07.12.2025@1.5.1
+- dependencies upgraded
+- Minor bug fixes related to `RTL` layout.
 ### latest Version
-`06.12.2025@1.5.0`
+`07.12.2025@1.5.1`
