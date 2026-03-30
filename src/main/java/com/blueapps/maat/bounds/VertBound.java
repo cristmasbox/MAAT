@@ -28,26 +28,33 @@ public class VertBound extends LayoutBound {
         float secondOverallHeight = 0f;
 
         int count = 0;
-         for (Bound bound: boundCalculations){
+        for (Bound bound: boundCalculations){
+            int myHeight = 0;
 
-            ArrayList<ValuePair<Float, Float>> dimension = new ArrayList<>();
-            int signCount = bound.getSignCount();
-            for (int i = 0; i < signCount; i++){
-                dimension.add(dimensions.get(count));
-                count++;
+            if (bound instanceof SimpleBound || bound instanceof LayoutBound) {
+                ArrayList<ValuePair<Float, Float>> dimension = new ArrayList<>();
+                int signCount = bound.getSignCount();
+                for (int i = 0; i < signCount; i++) {
+                    dimension.add(dimensions.get(count));
+                    count++;
+                }
+                Rect myBound = bound.getBound(property, dimension);
+
+                int width = myBound.width();
+                myHeight = myBound.height();
+                myBound.left = 0;
+                myBound.right = width;
+                myBound.top = 0;
+                myBound.bottom = myHeight;
+
+                firstBounds.add(myBound);
+            } else if (bound instanceof SpaceBound){
+                Rect myBound = bound.getBound(property, new ArrayList<>());
+                myHeight = myBound.height();
+                firstBounds.add(myBound);
             }
-            Rect myBound = bound.getBound(property, dimension);
 
-            int width = myBound.width();
-            int height = myBound.height();
-            myBound.left = 0;
-            myBound.right = width;
-            myBound.top = 0;
-            myBound.bottom = height;
-
-            firstBounds.add(myBound);
-
-            firstOverallHeight += height + property.getLayoutSignPadding();
+            firstOverallHeight += myHeight + property.getLayoutSignPadding();
 
         }
 

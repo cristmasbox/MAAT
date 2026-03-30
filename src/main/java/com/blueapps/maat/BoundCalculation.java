@@ -6,7 +6,9 @@ import android.util.Log;
 import com.blueapps.maat.bounds.Bound;
 import com.blueapps.maat.bounds.BreakBound;
 import com.blueapps.maat.bounds.HorizontalBound;
+import com.blueapps.maat.bounds.LayoutBound;
 import com.blueapps.maat.bounds.SimpleBound;
+import com.blueapps.maat.bounds.SpaceBound;
 import com.blueapps.maat.bounds.VertBound;
 
 import org.w3c.dom.Comment;
@@ -44,6 +46,8 @@ public class BoundCalculation {
     public static final String XML_BREAK_TAG = "br";
     public static final String XML_PAGE_BREAK_TAG = "pbr";
     public static final String XML_ID_ATTRIBUTE = "id";
+    public static final String XML_GAP_TAG = "gap";
+    public static final String XML_SPACE_TAG = "space";
 
     public static final int STANDARD_HEIGHT_VALUE = 1000;
     public static final int STANDARD_WIDTH_VALUE = 1000;
@@ -87,6 +91,11 @@ public class BoundCalculation {
                                 BreakBound breakBound = new BreakBound(element);
                                 boundCalculations.add(breakBound);
 
+                            } else if (Objects.equals(element.getTagName(), XML_GAP_TAG) ||
+                                        Objects.equals(element.getTagName(), XML_SPACE_TAG)) {
+
+                                SpaceBound spaceBound = new SpaceBound(element);
+                                boundCalculations.add(spaceBound);
                             }
                         } else if (node instanceof Comment) {
                             Log.i(TAG, "Node is a Comment");
@@ -152,7 +161,9 @@ public class BoundCalculation {
                 boundBound.top = (int) (boundBound.top + yCursor);
                 boundBound.bottom = (int) (boundBound.bottom + yCursor);
 
-                bounds.add(boundBound);
+                if (bound instanceof SimpleBound || bound instanceof LayoutBound) {
+                    bounds.add(boundBound);
+                }
 
                 if (property.getWritingLayout() == BoundProperty.WRITING_LAYOUT_LINES) {
                     xCursor += bound.getWidth() + property.getSignPadding();
@@ -176,7 +187,7 @@ public class BoundCalculation {
         int counter = 0;
         for (Bound bound: boundCalculations){
 
-            if (!(bound instanceof BreakBound)){
+            if (bound instanceof SimpleBound || bound instanceof LayoutBound){
                 Rect boundBound = bounds.get(counter);
                 ArrayList<Rect> bounds2 = bound.getBounds(boundBound);
                 returnBounds.addAll(bounds2);
@@ -205,7 +216,7 @@ public class BoundCalculation {
                     reversed.addAll(line);
                     reversed.add(bound);
                     line.clear();
-                } else {
+                } else if(bound instanceof SimpleBound || bound instanceof LayoutBound) {
                     line.add(bound);
                 }
             }

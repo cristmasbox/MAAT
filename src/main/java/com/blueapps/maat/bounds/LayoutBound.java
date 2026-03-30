@@ -1,7 +1,9 @@
 package com.blueapps.maat.bounds;
 
+import static com.blueapps.maat.BoundCalculation.XML_GAP_TAG;
 import static com.blueapps.maat.BoundCalculation.XML_H_TAG;
 import static com.blueapps.maat.BoundCalculation.XML_SIGN_TAG;
+import static com.blueapps.maat.BoundCalculation.XML_SPACE_TAG;
 import static com.blueapps.maat.BoundCalculation.XML_V_TAG;
 
 import android.graphics.Rect;
@@ -60,6 +62,10 @@ public class LayoutBound extends Bound{
                     this.counter += horizontalBound.getCounter();
                     boundCalculations.add(horizontalBound);
 
+                } else if (Objects.equals(childElement.getTagName(), XML_SPACE_TAG) ||
+                        Objects.equals(childElement.getTagName(), XML_GAP_TAG)){
+
+                    boundCalculations.add(new SpaceBound(childElement));
                 }
 
             } else if (childNode instanceof Comment) {
@@ -83,20 +89,23 @@ public class LayoutBound extends Bound{
 
         int counter = 0;
         for (Rect bound: subBounds){
-            float x = bound.left;
-            float y = bound.top;
-            float r = bound.right;
-            float b = bound.bottom;
+            Bound type = boundCalculations.get(counter);
+            if (type instanceof SimpleBound || type instanceof LayoutBound) {
+                float x = bound.left;
+                float y = bound.top;
+                float r = bound.right;
+                float b = bound.bottom;
 
-            x = (x * scaleX) + transitionX;
-            y = (y * scaleY) + transitionY;
-            r = (r * scaleX) + transitionX;
-            b = (b * scaleY) + transitionY;
+                x = (x * scaleX) + transitionX;
+                y = (y * scaleY) + transitionY;
+                r = (r * scaleX) + transitionX;
+                b = (b * scaleY) + transitionY;
 
-            Rect newBound2 = new Rect((int) x, (int) y, (int) r, (int) b);
-            Bound bound2 = boundCalculations.get(counter);
-            returnBounds.addAll(bound2.getBounds(newBound2));
-            counter++;
+                Rect newBound2 = new Rect((int) x, (int) y, (int) r, (int) b);
+                Bound bound2 = boundCalculations.get(counter);
+                returnBounds.addAll(bound2.getBounds(newBound2));
+                counter++;
+            }
         }
         return returnBounds;
     }

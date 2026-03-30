@@ -30,46 +30,40 @@ public class HorizontalBound extends LayoutBound {
         // reverse order for RTL layout
         if (property.getWritingDirection() == BoundProperty.WRITING_DIRECTION_RTL) {
 
-            ArrayList<Bound> reversed = new ArrayList<>();
-            ArrayList<Bound> line = new ArrayList<>();
-            for (Bound bound : boundCalculations) {
-                if (bound instanceof BreakBound) {
-                    Collections.reverse(line);
-                    reversed.addAll(line);
-                    reversed.add(bound);
-                    line.clear();
-                } else {
-                    line.add(bound);
-                }
-            }
-
+            ArrayList<Bound> line = new ArrayList<>(boundCalculations);
             Collections.reverse(line);
-            reversed.addAll(line);
-            boundCalculations = reversed;
+            boundCalculations = new ArrayList<>(line);
 
         }
 
         int count = 0;
         for (Bound bound: boundCalculations){
+            int myWidth = 0;
 
-            ArrayList<ValuePair<Float, Float>> dimension = new ArrayList<>();
-            int signCount = bound.getSignCount();
-            for (int i = 0; i < signCount; i++){
-                dimension.add(dimensions.get(count));
-                count++;
+            if (bound instanceof SimpleBound || bound instanceof LayoutBound) {
+                ArrayList<ValuePair<Float, Float>> dimension = new ArrayList<>();
+                int signCount = bound.getSignCount();
+                for (int i = 0; i < signCount; i++) {
+                    dimension.add(dimensions.get(count));
+                    count++;
+                }
+                Rect myBound = bound.getBound(property, dimension);
+
+                myWidth = myBound.width();
+                int height = myBound.height();
+                myBound.left = 0;
+                myBound.right = myWidth;
+                myBound.top = 0;
+                myBound.bottom = height;
+
+                firstBounds.add(myBound);
+            } else if (bound instanceof SpaceBound){
+                Rect myBound = bound.getBound(property, new ArrayList<>());
+                myWidth = myBound.width();
+                firstBounds.add(myBound);
             }
-            Rect myBound = bound.getBound(property, dimension);
 
-            int width = myBound.width();
-            int height = myBound.height();
-            myBound.left = 0;
-            myBound.right = width;
-            myBound.top = 0;
-            myBound.bottom = height;
-
-            firstBounds.add(myBound);
-
-            firstOverallWidth += width + property.getLayoutSignPadding();
+            firstOverallWidth += myWidth + property.getLayoutSignPadding();
         }
 
         if (property.getWritingLayout() == BoundProperty.WRITING_LAYOUT_COLUMNS || (!rootChild)) {
@@ -154,22 +148,9 @@ public class HorizontalBound extends LayoutBound {
         // reverse order for RTL layout
         if (RTL) {
 
-            ArrayList<Bound> reversed = new ArrayList<>();
-            ArrayList<Bound> line = new ArrayList<>();
-            for (Bound bound : boundCalculations) {
-                if (bound instanceof BreakBound) {
-                    Collections.reverse(line);
-                    reversed.addAll(line);
-                    reversed.add(bound);
-                    line.clear();
-                } else {
-                    line.add(bound);
-                }
-            }
-
+            ArrayList<Bound> line = new ArrayList<>(boundCalculations);
             Collections.reverse(line);
-            reversed.addAll(line);
-            boundCalculations = reversed;
+            boundCalculations = new ArrayList<>(line);
 
         }
 
