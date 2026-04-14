@@ -1,15 +1,15 @@
-[![](https://jitpack.io/v/cristmasbox/MAAT.svg)](https://jitpack.io/#cristmasbox/MAAT)
+[![](https://jitpack.io/v/ThothDroid/MAAT.svg)](https://jitpack.io/#ThothDroid/MAAT)
 # Mobile API for Ancient Texts (MAAT)
 A library for rendering egyptian hieroglyphic texts by using the `GlyphX` format.
 
 ## Disclaimer
 This library only handles the calculation of the position and scale of each hieroglyph. The rendering and storing of the images are not included. Besides the library uses the `GlyphX` code for encoding the hieroglyphic texts.
 <br/><br/>
-A library for converting `GlyphX` to `MdC` and back is stored here: [GlyphConverter](https://github.com/cristmasbox/GlyphConverter).
+A library for converting `GlyphX` to `MdC` and back is stored here: [GlyphConverter](https://github.com/ThothDroid/GlyphConverter).
 
 > [!TIP]
 > **You don't want to handle all the images by yourself?
-> Try the [THOTH](https://github.com/cristmasbox/THOTH) library which uses the MAAT library and handles all the images.**\
+> Try the [THOTH](https://github.com/ThothDroid/THOTH) library which uses the MAAT library and handles all the images.**\
 > It contains an android custom view which renders everything for you. You only have to adjust a few parameters!
 
 ## Implementation with jitpack
@@ -26,11 +26,11 @@ dependencyResolutionManagement {
 Then add this dependency to your `build.gradle.kts` file:
 ```
 dependencies {
-  implementation("com.github.cristmasbox:MAAT:1.5.1")
+  implementation("com.github.ThothDroid:MAAT:1.5.1")
 }
 ```
 > [!NOTE]
-> For the implementation for other build systems like `Groovy` see [here](https://jitpack.io/#cristmasbox/MAAT/)
+> For the implementation for other build systems like `Groovy` see [here](https://jitpack.io/#ThothDroid/MAAT/)
 
 ## Implementation with `.aar` file
 Download the `MAAT_debug_versionname.aar` file from this repository, create a `libs` folder in your project directory and paste the file there. Then add this dependency to your `build.gradle.kts` file:
@@ -120,8 +120,8 @@ Now you can use the position and scale values stored in the `Rect` instances and
 ### 13.09.2025@1.0.0
 This is the first release of the MAAT library.
 ### 06.12.2025@1.5.0
-- Support for ```<br/>``` and ```<pbr/>``` tags added
-- Issue with ```RTL``` layout solved
+- Support for `<br/>` and `<pbr/>` tags added
+- Issue with `RTL` layout solved
 - Paddings for graphical purposes added
 ### 07.12.2025@1.5.1
 - dependencies upgraded
