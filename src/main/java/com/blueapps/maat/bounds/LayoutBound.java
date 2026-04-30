@@ -104,8 +104,8 @@ public class LayoutBound extends Bound{
                 Rect newBound2 = new Rect((int) x, (int) y, (int) r, (int) b);
                 Bound bound2 = boundCalculations.get(counter);
                 returnBounds.addAll(bound2.getBounds(newBound2));
-                counter++;
             }
+            counter++;
         }
         return returnBounds;
     }
