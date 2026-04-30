@@ -1,6 +1,8 @@
 [![](https://jitpack.io/v/ThothDroid/MAAT.svg)](https://jitpack.io/#ThothDroid/MAAT)
 # Mobile API for Ancient Texts (MAAT)
-A library for rendering egyptian hieroglyphic texts by using the `GlyphX` format.
+A library for rendering Egyptian hieroglyphic texts by using the `GlyphX` format. \
+\
+*This library is part of the [Egyptian Writer](https://github.com/ThothDroid/Egyptian_Writer) Android App.*
 
 ## Disclaimer
 This library only handles the calculation of the position and scale of each hieroglyph. The rendering and storing of the images are not included. Besides the library uses the `GlyphX` code for encoding the hieroglyphic texts.
@@ -72,11 +74,11 @@ The second parameter is the `writingDirection`:
 The ids are either codes from [Gardiner's Sign List](https://ancientegyptonline.co.uk/Gardiner-sign-list/) like `A1`, `Z1`, `A1B` or `O34` or their [phonetic alternates](http://71.174.62.16/image/WebGlyph/SmallCollection.pdf) like `sn`, `zA`, `xAst` or `ra`.<br/><br/>
 In the next step you have to find the right images representing the ids. When you found them, you have to get their dimensions and store them in an `ArrayList<ValuePair<Float, Float>>`. The first `Float`-value is the width and the second is the height of the image.
 > [!Caution]
-> The width and height values in the `ArrayList` must be in the same order like the equivalent ids.
+> The width and height values in the `ArrayList` must be in the same order as the equivalent ids.
 
 <br/>
 
-Now you have to setup the `BoundProperty`. This class is included in the library and there you store all the settings for the library.
+Now you have to set up the `BoundProperty`. This class is included in the library and there you store all the settings for the library.
 ```
 BoundProperty property = new BoundProperty(x, y, textSize,
                             verticalOrientation, writingDirection, writingLayout,
