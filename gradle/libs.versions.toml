@@ -20,7 +20,6 @@ runtime = "1.11.0"
 runtimeAndroid = "1.11.0"
 viewpager2 = "1.1.0"
 
-
 [libraries]
 compiler = { module = "androidx.compose.compiler:compiler", version.ref = "compiler" }
 google-material = { module = "com.google.android.material:material", version.ref = "googleMaterial"}
