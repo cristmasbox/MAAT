@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    id("com.android.library") version "9.1.0"
+    id("com.android.library") version "9.2.0"
     id("maven-publish")
-    id("org.jetbrains.kotlin.android") version "2.2.21"
+    id("org.jetbrains.kotlin.android") version "2.3.21"
 }
 
 android {
@@ -45,9 +45,9 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>().configureEa
 }
 
 dependencies {
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.3.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 }
 
 afterEvaluate {
